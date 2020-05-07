@@ -22,13 +22,15 @@ public class MapperTest {
     private UserMapper userMapper;
     @Autowired
     private DiscussPostMapper discussPostMapper;
+
     @Test
-    public void testSelectUser(){
-        User  user = userMapper.selectById(101);
+    public void testSelectUser() {
+        User user = userMapper.selectById(101);
         System.out.println(user);
     }
+
     @Test
-    public void testSelectPosts(){
+    public void testSelectPosts() {
         List<DiscussPost> list = discussPostMapper.selectDiscussPosts(0, 0, 10);
         for (DiscussPost post : list) {
             System.out.println(post);

@@ -57,57 +57,64 @@ public class AlphaController {
             e.printStackTrace();
         }
     }
+
     //GET请求
     //查询所有的学生students？current=1&limit=20
-    @RequestMapping(path = "/students",method = RequestMethod.GET)
+    @GetMapping("/students")
+//    @RequestMapping(path = "/students",method = RequestMethod.GET)
     @ResponseBody
     public String getStudents(
-            @RequestParam(name = "current",required =false,defaultValue = "1") int current,
-            @RequestParam(name = "limit",required =false,defaultValue = "20") int limit){
+            @RequestParam(name = "current", required = false, defaultValue = "1") int current,
+            @RequestParam(name = "limit", required = false, defaultValue = "20") int limit) {
         System.out.println(current);
         System.out.println(limit);
         return "some students";
     }
+
     //查询指定id的学生
-    @RequestMapping(path = "/student/{id}",method = RequestMethod.GET)
+    @RequestMapping(path = "/student/{id}", method = RequestMethod.GET)
     @ResponseBody
-    public String getStudent(@PathVariable("id") int id ){
+    public String getStudent(@PathVariable("id") int id) {
         System.out.println(id);
         return "a student";
 
     }
+
     //POST
-    @RequestMapping(path = "/student",method = RequestMethod.POST)
+    @RequestMapping(path = "/student", method = RequestMethod.POST)
     @ResponseBody
-    public String saveStudent(String name,int age){
+    public String saveStudent(String name, int age) {
         System.out.println(name);
         System.out.println(age);
         return "success";
     }
+
     //响应HTML数据
-    @RequestMapping(path = "/teacher",method = RequestMethod.GET)
-    public ModelAndView getTeacher(){
+    @RequestMapping(path = "/teacher", method = RequestMethod.GET)
+    public ModelAndView getTeacher() {
         ModelAndView mav = new ModelAndView();
-        mav.addObject("name","张三");
-        mav.addObject("age",30);
+        mav.addObject("name", "张三");
+        mav.addObject("age", 30);
         mav.setViewName("/demo/view");
         return mav;
     }
+
     //响应JSON数据(异步请求)
     //Java对象 -> JSON字符串 -> JS对象
-    @RequestMapping(path = "/emp",method = RequestMethod.GET)
+    @RequestMapping(path = "/emp", method = RequestMethod.GET)
     @ResponseBody
-    public Map<String,Object> getEmp(){
+    public Map<String, Object> getEmp() {
         HashMap<String, Object> emp = new HashMap<>();
         emp.put("name", "张三");
         emp.put("age", 23);
         emp.put("salary", 8000.00);
         return emp;
     }
-    @RequestMapping(path = "/emps",method = RequestMethod.GET)
+
+    @RequestMapping(path = "/emps", method = RequestMethod.GET)
     @ResponseBody
-    public List<Map<String,Object>> getEmps(){
-        ArrayList<Map<String,Object>> list = new ArrayList<>();
+    public List<Map<String, Object>> getEmps() {
+        ArrayList<Map<String, Object>> list = new ArrayList<>();
         HashMap<String, Object> emp = new HashMap<>();
         emp.put("name", "张三");
         emp.put("age", 23);

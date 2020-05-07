@@ -18,33 +18,38 @@ import java.util.Date;
 @ContextConfiguration(classes = CommunityApplication.class)
 class CommunityApplicationTests implements ApplicationContextAware {
     private ApplicationContext applicationContext;
+    @Autowired
+    @Qualifier("alphaDaoHibernate")
+    private AlphaDao alphaDao;
+
     @Override
     public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
         this.applicationContext = applicationContext;
     }
+
     @Test
-    void testApplicationContext(){
+    void testApplicationContext() {
         System.out.println(applicationContext);
         AlphaDao alphaDao = applicationContext.getBean(AlphaDao.class);
         System.out.println(alphaDao.select());
-        alphaDao = applicationContext.getBean("alphaDaoHibernate",AlphaDao.class);
+        alphaDao = applicationContext.getBean("alphaDaoHibernate", AlphaDao.class);
         System.out.println(alphaDao.select());
     }
+
     @Test
-    void testBeanManagement(){
+    void testBeanManagement() {
         //默认是单例的
         AlphaService alphaService = applicationContext.getBean(AlphaService.class);
     }
+
     @Test
-    void testBeanConfig(){
+    void testBeanConfig() {
         SimpleDateFormat simpleDateFormat = applicationContext.getBean(SimpleDateFormat.class);
         System.out.println(simpleDateFormat.format(new Date()));
     }
-    @Autowired
-    @Qualifier("alphaDaoHibernate")
-    private AlphaDao alphaDao;
+
     @Test
-    void testDI(){
+    void testDI() {
         System.out.println(alphaDao.select());
     }
 }

@@ -6,8 +6,6 @@ import org.slf4j.LoggerFactory;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.ContextConfiguration;
 
-import javax.swing.*;
-
 /**
  * @author gsyzh
  * @create 2020-05-04 16:47
@@ -16,8 +14,9 @@ import javax.swing.*;
 @ContextConfiguration(classes = CommunityApplication.class)
 public class LoggerTest {
     private static final Logger logger = LoggerFactory.getLogger(LoggerTest.class);
+
     @Test
-    public void testLogger(){
+    public void testLogger() {
         System.out.println(logger.getName());
         logger.debug("debug log");
         logger.info("info log");

@@ -16,21 +16,21 @@ public class AlphaService {
     @Autowired
     private AlphaDao alphaDao;
 
-    public String find(){
-        return alphaDao.select();
-    }
-
     public AlphaService() {
         System.out.println("实例化");
     }
 
+    public String find() {
+        return alphaDao.select();
+    }
+
     @PostConstruct
-    public void init(){
+    public void init() {
         System.out.println("初始化");
     }
 
     @PreDestroy
-    public void destroy(){
+    public void destroy() {
         System.out.println("销毁");
     }
 }

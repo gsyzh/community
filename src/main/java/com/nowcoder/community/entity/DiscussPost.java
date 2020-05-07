@@ -89,6 +89,7 @@ public class DiscussPost {
         this.score = score;
     }
 
+
     @Override
     public String toString() {
         final StringBuffer sb = new StringBuffer("DiscussPost{");

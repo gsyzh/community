@@ -17,10 +17,10 @@ public class LoggerTest {
 
     @Test
     public void testLogger() {
-        System.out.println(logger.getName());
-        logger.debug("debug log");
-        logger.info("info log");
-        logger.warn("warn log");
-        logger.error("error log");
+        System.out.println(LoggerTest.logger.getName());
+        LoggerTest.logger.debug("debug log");
+        LoggerTest.logger.info("info log");
+        LoggerTest.logger.warn("warn log");
+        LoggerTest.logger.error("error log");
     }
 }

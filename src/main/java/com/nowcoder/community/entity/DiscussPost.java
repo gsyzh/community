@@ -2,11 +2,8 @@ package com.nowcoder.community.entity;
 
 import java.util.Date;
 
-/**
- * @author gsyzh
- * @create 2020-05-04 9:36
- */
 public class DiscussPost {
+
     private int id;
     private int userId;
     private String title;
@@ -89,20 +86,18 @@ public class DiscussPost {
         this.score = score;
     }
 
-
     @Override
     public String toString() {
-        final StringBuffer sb = new StringBuffer("DiscussPost{");
-        sb.append("id=").append(id);
-        sb.append(", userId=").append(userId);
-        sb.append(", title='").append(title).append('\'');
-        sb.append(", content='").append(content).append('\'');
-        sb.append(", type=").append(type);
-        sb.append(", status=").append(status);
-        sb.append(", createTime=").append(createTime);
-        sb.append(", commentCount=").append(commentCount);
-        sb.append(", score=").append(score);
-        sb.append('}');
-        return sb.toString();
+        return "DiscussPost{" +
+                "id=" + id +
+                ", userId=" + userId +
+                ", title='" + title + '\'' +
+                ", content='" + content + '\'' +
+                ", type=" + type +
+                ", status=" + status +
+                ", createTime=" + createTime +
+                ", commentCount=" + commentCount +
+                ", score=" + score +
+                '}';
     }
 }

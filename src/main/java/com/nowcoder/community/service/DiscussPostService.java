@@ -7,12 +7,9 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-/**
- * @author gsyzh
- * @create 2020-05-04 10:01
- */
 @Service
 public class DiscussPostService {
+
     @Autowired
     private DiscussPostMapper discussPostMapper;
 
@@ -23,4 +20,5 @@ public class DiscussPostService {
     public int findDiscussPostRows(int userId) {
         return discussPostMapper.selectDiscussPostRows(userId);
     }
+
 }

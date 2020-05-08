@@ -2,12 +2,8 @@ package com.nowcoder.community.entity;
 
 import java.util.Date;
 
-/**
- * @author gsyzh
- * @create 2020-05-04 8:46
- */
-
 public class User {
+
     private int id;
     private String username;
     private String password;
@@ -101,19 +97,18 @@ public class User {
 
     @Override
     public String toString() {
-        final StringBuffer sb = new StringBuffer("User{");
-        sb.append("id=").append(id);
-        sb.append(", username='").append(username).append('\'');
-        sb.append(", password='").append(password).append('\'');
-        sb.append(", salt='").append(salt).append('\'');
-        sb.append(", email='").append(email).append('\'');
-        sb.append(", type=").append(type);
-        sb.append(", status=").append(status);
-        sb.append(", activationCode='").append(activationCode).append('\'');
-        sb.append(", headerUrl='").append(headerUrl).append('\'');
-        sb.append(", createTime=").append(createTime);
-        sb.append('}');
-        return sb.toString();
+        return "User{" +
+                "id=" + id +
+                ", username='" + username + '\'' +
+                ", password='" + password + '\'' +
+                ", salt='" + salt + '\'' +
+                ", email='" + email + '\'' +
+                ", type=" + type +
+                ", status=" + status +
+                ", activationCode='" + activationCode + '\'' +
+                ", headerUrl='" + headerUrl + '\'' +
+                ", createTime=" + createTime +
+                '}';
     }
 
 }

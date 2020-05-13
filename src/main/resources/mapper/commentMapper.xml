@@ -34,6 +34,12 @@
         and entity_type = #{entityType}
         and entity_id = #{entityId}
     </select>
+    <select id="selectCommentsById" resultType="com.nowcoder.community.entity.Comment">
+        select
+        <include refid="selectFields"></include>
+        from comment
+        where id = #{id}
+    </select>
 
 
 </mapper>

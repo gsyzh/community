@@ -1,6 +1,7 @@
 package com.nowcoder.community;
 
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
+import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.dao.DataAccessException;
@@ -9,9 +10,11 @@ import org.springframework.data.redis.core.RedisOperations;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.core.SessionCallback;
 import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit4.SpringRunner;
 
 import java.util.concurrent.TimeUnit;
 
+@RunWith(SpringRunner.class)
 @SpringBootTest
 @ContextConfiguration(classes = CommunityApplication.class)
 public class RedisTests {
@@ -114,14 +117,15 @@ public class RedisTests {
             @Override
             public Object execute(RedisOperations operations) throws DataAccessException {
                 String redisKey = "test:tx";
-                //启用事务
+
                 operations.multi();
+
                 operations.opsForSet().add(redisKey, "zhangsan");
                 operations.opsForSet().add(redisKey, "lisi");
                 operations.opsForSet().add(redisKey, "wangwu");
-                //此时不会查到数据
+
                 System.out.println(operations.opsForSet().members(redisKey));
-                //提交事务
+
                 return operations.exec();
             }
         });

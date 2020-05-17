@@ -4,7 +4,6 @@ import com.nowcoder.community.dao.DiscussPostMapper;
 import com.nowcoder.community.dao.LoginTicketMapper;
 import com.nowcoder.community.dao.MessageMapper;
 import com.nowcoder.community.dao.UserMapper;
-import com.nowcoder.community.entity.DiscussPost;
 import com.nowcoder.community.entity.LoginTicket;
 import com.nowcoder.community.entity.Message;
 import com.nowcoder.community.entity.User;
@@ -74,16 +73,6 @@ public class MapperTests {
         System.out.println(rows);
     }
 
-    @Test
-    public void testSelectPosts() {
-        List<DiscussPost> list = discussPostMapper.selectDiscussPosts(149, 0, 10);
-        for (DiscussPost post : list) {
-            System.out.println(post);
-        }
-
-        int rows = discussPostMapper.selectDiscussPostRows(149);
-        System.out.println(rows);
-    }
 
     @Test
     public void testInsertLoginTicket() {

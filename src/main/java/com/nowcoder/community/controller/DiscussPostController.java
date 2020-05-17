@@ -64,7 +64,9 @@ public class DiscussPostController implements CommunityConstant {
                 .setEntityType(ENTITY_TYPE_POST)
                 .setEntityId(post.getId());
         eventProducer.fireEvent(event);
-
+        // 计算帖子分数
+        String redisKey = RedisKeyUtil.getPostScoreKey();
+        redisTemplate.opsForSet().add(redisKey, post.getId());
         //报错的情况将来统一处理
         return CommunityUtil.getJSONString(0, "发布成功");
     }
@@ -149,7 +151,6 @@ public class DiscussPostController implements CommunityConstant {
                 .setEntityType(ENTITY_TYPE_POST)
                 .setEntityId(id);
         eventProducer.fireEvent(event);
-
         return CommunityUtil.getJSONString(0);
     }
 

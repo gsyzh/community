@@ -1,7 +1,7 @@
 package com.nowcoder.community.config;
 
 import com.nowcoder.community.controller.interceptor.AlphaInterceptor;
-import com.nowcoder.community.controller.interceptor.LoginRequiredInterceptor;
+import com.nowcoder.community.controller.interceptor.DataInterceptor;
 import com.nowcoder.community.controller.interceptor.LoginTicketInterceptor;
 import com.nowcoder.community.controller.interceptor.MessageInterceptor;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,10 +19,14 @@ public class WebMvcConfig implements WebMvcConfigurer {
     private LoginTicketInterceptor loginTicketInterceptor;
 
     @Autowired
-    private LoginRequiredInterceptor loginRequiredInterceptor;
+    private MessageInterceptor messageInterceptor;
 
     @Autowired
-    private MessageInterceptor messageInterceptor;
+    private DataInterceptor dataInterceptor;
+//    使用spring security对原有的拦截器进行开发
+//    @Autowired
+//    private LoginRequiredInterceptor loginRequiredInterceptor;
+
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
         registry.addInterceptor(alphaInterceptor)
@@ -32,7 +36,7 @@ public class WebMvcConfig implements WebMvcConfigurer {
         registry.addInterceptor(loginTicketInterceptor)
                 .excludePathPatterns("/**/*.css", "/**/*.js", "/**/*.png", "/**/*.jpg", "/**/*.jpeg");
 
-        registry.addInterceptor(loginRequiredInterceptor)
+        registry.addInterceptor(dataInterceptor)
                 .excludePathPatterns("/**/*.css", "/**/*.js", "/**/*.png", "/**/*.jpg", "/**/*.jpeg");
 
         registry.addInterceptor(messageInterceptor)

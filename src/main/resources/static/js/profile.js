@@ -1,5 +1,4 @@
-var CONTEXT_PATH = "/community";
-
+var CONTEXT_PATH = "";
 $(function(){
 	$(".follow-btn").click(follow);
 });

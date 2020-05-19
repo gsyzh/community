@@ -1,4 +1,4 @@
-var CONTEXT_PATH = "/community";
+var CONTEXT_PATH = "";
 $(function(){
     $("#publishBtn").click(publish);
 });
